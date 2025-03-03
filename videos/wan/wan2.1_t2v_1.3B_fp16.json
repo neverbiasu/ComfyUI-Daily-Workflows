@@ -1,0 +1,520 @@
+{
+  "last_node_id": 10,
+  "last_link_id": 10,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        170.12881469726562,
+        388.09246826171875
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "label": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1,
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan",
+        "default"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        572.6093139648438,
+        632.3546142578125
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "label": "CLIP",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        168.9695587158203,
+        236.45692443847656
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "label": "模型",
+          "type": "MODEL",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "wan2.1_t2v_1.3B_fp16.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        567.8607177734375,
+        235.38612365722656
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "label": "模型",
+          "type": "MODEL",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        8
+      ]
+    },
+    {
+      "id": 7,
+      "type": "EmptyHunyuanLatentVideo",
+      "pos": [
+        644.998291015625,
+        910.0946655273438
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "label": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "EmptyHunyuanLatentVideo"
+      },
+      "widgets_values": [
+        480,
+        1024,
+        49,
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1540.765625,
+        280.00482177734375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "label": "Latent",
+          "type": "LATENT",
+          "link": 8
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "label": "图像",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "SaveAnimatedWEBP",
+      "pos": [
+        1852.0909423828125,
+        283.1566467285156
+      ],
+      "size": [
+        315,
+        366
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "label": "图像",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18"
+      },
+      "widgets_values": [
+        "ComfyUI",
+        16,
+        true,
+        90,
+        "default",
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        573.68017578125,
+        389.34942626953125
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "label": "CLIP",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "苏州园林细雨中，圆脸女孩撑开油纸伞时藕臂微抬，真丝改良旗袍在胸口捏出牡丹褶皱，高开衩处若隐若现的蜜桃臀曲线被苏绣裙撑巧妙托起，珍珠发簪在空气刘海上摇晃出细碎光斑。"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 9,
+      "type": "VAELoader",
+      "pos": [
+        1128.5594482421875,
+        586.8466796875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "KSampler",
+      "pos": [
+        1097.6190185546875,
+        262.38360595703125
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "link": 4
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "negative",
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "label": "Latent",
+          "type": "LATENT",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        130821838721282,
+        "randomize",
+        30,
+        8,
+        "euler_ancestral",
+        "sgm_uniform",
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      2,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      1,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      5,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      5,
+      3,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      4,
+      0,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      7,
+      0,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      8,
+      6,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      9,
+      9,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      8,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9229599817706837,
+      "offset": [
+        -695.0365549726225,
+        -152.4591469492026
+      ]
+    }
+  },
+  "version": 0.4
+}
