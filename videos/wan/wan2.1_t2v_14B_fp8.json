@@ -170,44 +170,6 @@
       ]
     },
     {
-      "id": 40,
-      "type": "EmptyHunyuanLatentVideo",
-      "pos": [
-        520,
-        620
-      ],
-      "size": [
-        315,
-        130
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "label": "LATENT",
-          "type": "LATENT",
-          "links": [
-            91
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.18",
-        "Node name for S&R": "EmptyHunyuanLatentVideo"
-      },
-      "widgets_values": [
-        832,
-        480,
-        33,
-        1
-      ]
-    },
-    {
       "id": 38,
       "type": "CLIPLoader",
       "pos": [
@@ -219,7 +181,7 @@
         82
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -323,7 +285,7 @@
         82
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -392,6 +354,44 @@
       "bgcolor": "#353"
     },
     {
+      "id": 40,
+      "type": "EmptyHunyuanLatentVideo",
+      "pos": [
+        520,
+        620
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "label": "LATENT",
+          "type": "LATENT",
+          "links": [
+            91
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.18",
+        "Node name for S&R": "EmptyHunyuanLatentVideo"
+      },
+      "widgets_values": [
+        480,
+        1024,
+        49,
+        1
+      ]
+    },
+    {
       "id": 28,
       "type": "SaveAnimatedWEBP",
       "pos": [
@@ -421,7 +421,7 @@
       "widgets_values": [
         "ComfyUI",
         16,
-        false,
+        true,
         90,
         "default"
       ]
@@ -515,8 +515,8 @@
     "ds": {
       "scale": 0.8390545288824413,
       "offset": [
-        -861.0145637139992,
-        199.39527552015778
+        -243.66233013517964,
+        -155.1565098640797
       ]
     }
   },
